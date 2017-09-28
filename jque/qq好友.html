@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		h2,li{
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		h2:hover,li:hover{
+			background-color: gray;
+		}
+		ul{
+			display: none;
+		}
+		.show{display: block;}
+	</style>
+	<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('h2').on('click',function(){
+
+				$('ul').eq($(this).index()/2).toggle();
+				$('ul').not($('ul').eq($(this).index()/2)).hide();
+
+			})
+		})
+	</script>
+</head>
+<body>
+
+	<h2>好友1</h2>
+	<ul>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+		<li>111</li>
+	</ul>
+	<h2>好友2</h2>
+	<ul>
+		<li>222</li>
+		<li>222</li>
+		<li>222</li>
+		<li>222</li>
+	</ul>
+	<h2>好友3</h2>
+	<ul>
+		<li>333</li>
+		<li>333</li>
+		<li>333</li>
+		<li>333</li>
+	</ul>
+</body>
+</html>

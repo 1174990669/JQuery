@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+			$('a').on('click',function(){
+				$('a').removeClass('active');
+				$('div').removeClass('active');
+
+				$(this).addClass('active');
+				$('div').eq($(this).index()).addClass('active');
+
+			})
+		})
+	</script>
+	<style type="text/css">
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			display: none;
+		}
+		.active{display: inline-block;color: red;}
+	</style>
+</head>
+<body>
+
+	<a href="#" class="active">11</a>
+	<a href="#">22</a>
+	<a href="#">33</a>
+	<div class="active">11</div>
+	<div>22</div>
+	<div>33</div>
+</body>
+</html>
