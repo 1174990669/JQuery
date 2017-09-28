@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>点击登录</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		body{height:2000px;}
+		button{font-size:20px;cursor:pointer;}
+		div{position:relative;top:300px;left:500px;width:300px;height:300px;border:1px solid lime;display:none;}
+		.div{display:block;}
+		li{list-style:none;margin-top:40px;font-size:20px;}
+		li input{height:20px;}
+		div button{float:right;margin-top:-132px;border-radius:50px;background: pink;}
+	</style>
+</head>
+<body>
+	<button>登录</button>
+	<div>
+		<li>用户名：<input type="text" value="深圳"></li>
+		<li>密&nbsp; 码：<input type="password" value="123456"></li>
+		<button>关闭</button>
+	</div>
+
+	<script>
+		$('button').click(function(){
+			$('div').toggleClass('div').hidden();
+		})
+		$('div').css('top',($(window).height()/2)-$('div').outerHeight()/2);
+		// $('div').css('left',($(window).width()/2)-$('div').outerWidth()/2);
+		$(window).scroll(function(){
+			$('div').css('top',($(window).height()/2)-$('div').outerHeight()/2+$(window).scrollTop());
+		})	
+	</script>
+</body>
+</html>

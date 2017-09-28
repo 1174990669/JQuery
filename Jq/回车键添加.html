@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>回车键添加</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		button{font-size:20px;cursor:pointer;margin-left:300px;}
+		input{width:140px;height:25px;font-size:20px;}
+		dl{width:200px;height:100%;margin-left:320px;border:1px solid lime;overflow:hidden;}
+		dd{line-height:40px;font-size:20px;cursor:pointer;}
+		.back{background: pink;}
+	</style>
+</head>
+<body>
+	<button>新增</button>
+	<input type="text">
+	<dl>
+		<dd>1</dd>
+		<dd>2</dd>
+		<dd>3</dd>
+		<dd>4</dd>
+		<dd>5</dd>
+		<dd>6</dd>
+	</dl>
+
+	<script>
+		$('dl').delegate('dd','click',function(ev){
+			$(this).toggleClass('back');
+		})
+		$('button').click(function(){
+			var $dl = $('<dd>'+$('input').val()+'</dd>');
+			$('dl').append($dl);
+			$('input').val("");
+		})
+		$('input').keydown(function(ev){
+			if(ev.which == 13){
+				$('button').trigger('click');
+		}
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除颜色</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		li{list-style:none;height:80px;margin-left:400px;}
+		span{font-size:30px;line-height:40px;cursor:pointer;}
+		div{width:200px;height:200px;border:1px solid gray;font-size:30px;text-align:center;line-height:200px;display:inline-block;cursor:pointer;}
+		input{font-size:30px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<p>
+		<input type="button" value="替换黄色">
+		<span>yellow</span> &nbsp;&nbsp;
+		<span>green</span> &nbsp;&nbsp;
+		<span>red</span> &nbsp;&nbsp;
+		<span>blue</span> &nbsp;&nbsp;
+	</p>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+
+	<script>
+		var $color='';
+		$('span').click(function(){
+			$color=$(this).html();
+		})
+		$('div').click(function(){
+			$(this).css('background',$color);
+		})
+		$('input').click(function(){
+			$('div[style*=yellow]').css('background','black');
+		})
+	</script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>颜色清除</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		li{list-style:none;height:80px;margin-left:400px;}
+		span{font-size:30px;line-height:40px;cursor:pointer;}
+		div{width:200px;height:200px;border:1px solid gray;font-size:30px;text-align:center;line-height:200px;display:inline-block;cursor:pointer;}
+		input{font-size:30px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<li>
+		<input type="button" value="替换红色">
+		<span>blue</span>&nbsp;&nbsp;
+		<span>red</span>&nbsp;&nbsp;
+		<span>green</span>&nbsp;&nbsp;
+		<span>pink</span>&nbsp;&nbsp;
+		<span>orange</span>&nbsp;&nbsp;
+		<span>purple</span>&nbsp;&nbsp;
+	</li>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<div>7</div>
+	<div>8</div>
+
+	<script>
+
+	var $color='';
+		var $color='';
+		$('span').click(function(){
+			$color=$(this).html();
+		})
+		$('div').click(function(){
+			$(this).css('background',$color);
+		})
+		$('input').click(function(){
+			$('div[style*=red]').css('background','black');
+		})
+	</script>
+</body>
+</html>
+ -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除颜色</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		li{list-style:none;margin-left:400px;height:60px;}
+		input{font-size:20px; }
+		span{font-size:26px;line-height:60px;cursor:pointer;}
+		div{width:200px;height:200px;border:1px solid gray;display:inline-block;text-align:center;line-height:200px;font-size:20px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<li>
+		<span>orange</span>&nbsp;
+		<span>blue</span>&nbsp;
+		<span>red</span>&nbsp;
+		<span>lime</span>&nbsp;
+		<span>pink</span>&nbsp;
+		<input type="button" value="清空红色" id="input1">
+	</li>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+	<div>6</div>
+	<script>
+		var $color='';
+
+		$('span').on('click',function(){
+			$color=$(this).html();
+		})
+		$('div').click(function(){
+			$(this).css('background',$color);
+		})
+		$('input').click(function(){
+			$('div[style*=red]').css('background','black')
+		})
+	</script>
+</body>
+</html> -->

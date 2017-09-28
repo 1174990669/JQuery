@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>免费抽奖</title>
+	<style>
+		div{margin:0 auto;}
+		#luck{width:600px;height: 600px;background:pink;}
+		p{width:600px;height: 40px;font-size:30px;color:green;text-align:center;margin:0px;
+			line-height:80px;}
+		#border{width:600px;height:530px;margin-top:30px;}
+		ul{margin:0;padding:0;position: relative}
+		li{list-style:none;width:150px;height: 150px;display: inline-block;text-align:center;line-height: 150px;color:pink;font-size:26px;margin-bottom:40px;margin-left:30px;background:orange;border-radius:70px;position:absolute;}
+		li:nth-of-type(1){background:url(./img/j.png);background-size:100% 100%;}
+		li:nth-of-type(2){left:180px;background:url(./img/j2.png);background-size:100% 100%;}
+		li:nth-of-type(3){left:360px;background:url(./img/j3.png);background-size:100% 100%;}
+		li:nth-of-type(4){left:360px;top:180px;background:url(./img/j4.png);background-size:100% 100%;}
+		li:nth-of-type(5){left:360px;top:350px;background:url(./img/j5.png);background-size:100% 100%;}
+		li:nth-of-type(6){left:180px;top:350px;background:url(./img/j6.png);background-size:100% 100%;}
+		li:nth-of-type(7){top:350px;background:url(./img/j7.png);background-size:100% 100%;}
+		li:nth-of-type(8){top:180px;background:url(./img/j8.png);background-size:100% 100%;}
+		#button{cursor:pointer;background:url(./img/j9.png);background-size:100% 100%;position:absolute;left:210px;top:180px;width: 150px;height:150px;font-size:30px;text-align:center;line-height: 150px;}
+		#li{width:146px;height:146px;border:4px solid purple;border-radius:70px;position: absolute;margin-left:28px;}
+		.ul-li{list-style:none;width:160px;height: 160px;display: inline-block;text-align:center;line-height: 150px;color:lime;font-size:26px;margin-bottom:40px;margin-left:30px;
+			border:4px solid  lime;border-radius:70px;z-index: 1}
+	</style>
+</head>
+<body>
+	<div id="luck">
+		<p>抽奖活动</p>
+		<div id="border">
+			<ul>
+				<div  id="button">单击抽奖</div>
+				<li class="ul-li">一等奖 </li>
+				<li>谢谢参与</li>
+				<li>二等级</li>
+				<li>谢谢参与</li>
+				<li>三等奖</li>
+				<li>谢谢参与</li>
+				<li>三等奖</li>
+				<li>谢谢参与</li>
+			</ul>
+		</div>
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		var i=0;
+		$('#button').on('click',function(){
+			var step = parseInt(Math.random() * 30 + 5);
+			var timer=setInterval(function(){
+				$("li").eq(i).addClass('ul-li').siblings().removeClass('ul-li');
+				i++;
+				step--;
+				if(step==0){
+				clearInterval(timer);
+			}
+				if(i==$("li").length){
+					i=0;
+				}
+			},200)
+		})
+	</script>
+</body>
+</html>

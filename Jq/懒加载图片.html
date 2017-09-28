@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载图片</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		img{width:800px;height:400px;margin-top:400px;opacity:0;transition:3s;}
+		img:nth-of-type(1){opacity:1;}
+	</style>
+</head>
+<body>
+	<div>
+	<img src="./img/t1.png"  alt="">
+	<img -src="./img/t2.png"  alt="">
+	<img -src="./img/t3.png"  alt="">
+	<img -src="./img/t4.png"  alt="">
+	<img -src="./img/t5.png"  alt="">
+	<img -src="./img/t6.png"  alt="">
+	<img -src="./img/j2.png"  alt="">
+	<img -src="./img/j3.png"  alt="">
+	<img -src="./img/j4.png"  alt="">
+	<img -src="./img/j5.png"  alt="">
+	</div>
+
+	<script>
+		$(window).scroll(function(){
+			$('img').each(function(i,elem){
+				if($(elem).offset().top<$(window).height()+$(document).scrollTop()){
+					$(elem).attr('src',$(elem).attr('-src'))
+					$(elem).css('opacity',1)
+				}
+			})
+		})
+	</script>
+</body>
+</html>

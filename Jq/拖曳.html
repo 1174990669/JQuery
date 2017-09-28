@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>图片拖曳</title>
+	<style>
+		body{height:1500px;}
+		#div1{width:400px;height:400px;background:url(./img/t1.png);background-size:100% 100%;
+			position:absolute;}
+		#div2{width:400px;height:400px;background:url(./img/t2.png);background-size:100% 100%;
+				bottom:0px;position:absolute;}
+		#div3{width:400px;height:400px;background:url(./img/t3.png);background-size:100% 100%;
+				bottom:-500px;position:absolute;}
+		#div4{width:400px;height:400px;background:url(./img/t4.png);background-size:100% 100%;
+				right:50px;position:absolute;}
+		#div5{width:400px;height:400px;background:url(./img/t5.png);background-size:100% 100%;
+				bottom:50px;right:50px;position:absolute;}
+		#div6{width:400px;height:400px;background:url(./img/t6.png);background-size:100% 100%;
+				bottom:-500px;right:50px;position:absolute;}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div  id="div2"></div>
+	<div  id="div3"></div>
+	<div  id="div4"></div>
+	<div  id="div5"></div>
+	<div  id="div6"></div>
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		var disX=0;
+		var disY=0;
+		 $('#div1').mousedown(function(ev){  //mousedow 鼠标按下
+			disX=ev.pageX-$(this).offset().left;
+			disY=ev.pageY-$(this).offset().top;
+				$(document).mousemove(function(ev){ //mousemove 鼠标移动
+					$('#div1').css('left',ev.pageX-disX);
+					$('#div1').css('top',ev.pageY-disY);
+						$(document).mouseup(function(){  //mouseup 鼠标移开
+							$(document).off();
+				});
+			});
+			return false;
+		});
+
+		 $('#div2').mousedown(function(v){
+			disX=v.pageX-$(this).offset().left;
+			disY=v.pageY-$(this).offset().top;
+			$(document).mousemove(function(v){
+				$('#div2').css('left',v.pageX-disX);
+				$('#div2').css('top',v.pageY-disY);
+				$(document).mouseup(function(){
+					$(document).off();
+				})
+			})
+			return false;
+		})
+
+		 $('#div3').mousedown(function(e){
+			disX=e.pageX-$(this).offset().left;
+			disY=e.pageY-$(this).offset().top;
+			$(document).mousemove(function(e){
+				$('#div3').css('left',e.pageX-disX);
+				$('#div3').css('top',e.pageY-disY);
+				$(document).mouseup(function(){
+					$(document).off();
+				})
+			})
+			return false;
+		})
+
+		 $('#div4').mousedown(function(h){
+			disX=h.pageX-$(this).offset().left;
+			disY=h.pageY-$(this).offset().top;
+			$(document).mousemove(function(h){
+				$('#div4').css('left',h.pageX-disX);
+				$('#div4').css('top',h.pageY-disY);
+				$(document).mouseup(function(){
+					$(document).off();
+				})
+			})
+			return false;
+		})
+
+		 $('#div5').mousedown(function(i){
+			disX=i.pageX-$(this).offset().left;
+			disY=i.pageY-$(this).offset().top;
+			$(document).mousemove(function(i){
+				$('#div5').css('left',i.pageX-disX);
+				$('#div5').css('top',i.pageY-disY);
+				$(document).mouseup(function(){
+					$(document).off();
+				})
+			})
+			return false;
+		})
+
+		 $('#div6').mousedown(function(j){
+			disX=j.pageX-$(this).offset().left;
+			disY=j.pageY-$(this).offset().top;
+			$(document).mousemove(function(j){
+				$('#div6').css('left',j.pageX-disX);
+				$('#div6').css('top',j.pageY-disY);
+				$(document).mouseup(function(){
+					$(document).off();
+				})
+			})
+			return false;
+		})
+	</script>
+</body>
+</html>

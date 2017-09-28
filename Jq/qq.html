@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QQ列表</title>
+	
+	<style>
+		/*div{width:200px;height:600px;border:1px solid lime;margin:0 auto;}*/
+		/*{width:400px;height:400px;}*/
+		h2,li,ul{border:1px solid lime;margin:0 auto;padding:0;width:200px;cursor:pointer;
+					overflow:hidden;}
+		ul{display:none;}
+		h2{background-color: orange;}
+		li{list-style:none;height: 30px;line-height: 30px;padding:0 20px ;}
+	</style>
+</head>
+<body>
+	
+	<div>
+		<h2 id="h1" class="oh2">我的好友</h2>
+		<ul id="u1" class="0li">
+			<li>好友1</li>
+			<li>好友2</li>
+			<li>好友3</li>
+			<li>好友4</li>
+		</ul>
+		<h2 id="h2"  >好友列表</h2>
+		<ul id="u2">
+			<li>好友1</li>
+			<li>好友2</li>
+			<li>好友3</li>
+			<li>好友4</li>
+			<li>好友5</li>
+		</ul>
+		<h2 id="h3">陌生人</h2>
+		<ul id="u3">
+			<li>好友1</li>
+			<li>好友2</li>
+			<li>好友3</li>
+		</ul>
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>	
+	<script> 
+				// $("li").css("color", "white");
+				
+
+		$("#h1").click(function(){
+			// $('ul').eq($(this).index()).('dispaly',"block");
+    		$("#u1").css("display","block");
+    		$("#u2").css("display","none");
+    		$("#u3").css("display","none");
+  		});		
+  		$("#h2").click(function(){
+    		$("#u2").css("display","block");
+    		$("#u1").css("display","none");
+    		$("#u3").css("display","none");
+  		});		
+  		$("#h3").click(function(){
+    		$("#u1").css("display","none");
+    		$("#u2").css("display","none");
+    		$("#u3").css("display","block");
+  		});		
+
+  		// $('h2').click(function(){
+  		// 	$('h2').eq($(this).index()).addClass("oh2").siblings().removeClass("oh2");
+  		// 	$('li').hide()eq($(this).index()).show();
+  		// })
+
+  //       $(".tab li").click(function(){
+
+  //       $(".tab li").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+		// $("div").hide().eq($(this).index()).show();
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗</title>
+	<style>
+		body{margin-left:200px;}
+		button{width:60px;height:30px;margin-left:170px;border-radius:10px;background-color: pink;
+		}
+		div{width:400px;height:400px;border:1px solid pink;border-radius:40px;display:none;}
+		input{width:200px;height:30px;font-size:20px;border:1px solid lime;margin-left:100px;}
+		input:nth-of-type(1){margin-top:100px;}
+		input:nth-of-type(2){margin-top:20px;}
+		.div1{display: block;margin-left:170px;}
+		.div2{display: none;margin-left:170px;}
+		p{background-color: red;width:200px;height: 200px;}
+	</style>
+</head>
+<body style="height:2000px;">
+	<button class="but1">注册</button>
+
+
+
+	<!-- <button class="but2">确认</button> -->
+	<div>
+		<input type="text" value="用户名"><br/>
+		<input type="text" value="密码">
+		<mark>背景</mark>
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>	
+	<script>
+			$('.but1').click(function(){
+				$('div').addClass('div1');
+				// $('div').append('<p>');
+				
+				// $('div').css('display','block');
+				// $('.but1').css('display','none');
+				// $('.but2').css('display','block');
+			})
+			// $('.but2').click(function(){
+				// $('.but1').css('display','block');
+				// $('.but2').css('display','none');
+			// })
+	</script>
+</body>
+</html>

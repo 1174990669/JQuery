@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝吸顶条</title>
+	<style>
+		div{height: 1500px;width:600px;background: lime;position: relative;}
+		p{width:400px;height:30px;background-color: pink;
+			position: absolute;bottom:0px;}
+	}
+	</style>
+</head>
+<body>
+	<div>
+		<p>列表 大图|旺旺在线|排序 |默认排序 消费者保障|对比</p>
+	</div>
+
+	<script src="jquery-3.2.1.min.js"></script>
+	<script>
+		$('div').click(function(){
+			
+			$(window).scrollTop(593);
+			alert($(window).scrollTop());
+		// 	   // alert()
+			
+		// 	// console.log()
+		})
+	</script>
+</body>
+</html>

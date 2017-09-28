@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		#carousel{width:1000px;height:710px;border: 1px solid lime;}
+		#head{width:1000px;height:500px;border:1px solid gray;}
+		#head img{width:100%;height:100%;}
+		#body{width:1000px;height: 200px;border: 1px solid pink;}
+		input{width:50px;height:40px;margin-top: 40px;cursor:pointer;}
+		#right{float:right;}
+		
+		ul{margin:0;padding:0;position:relative;top:-80px;left:90px;width:858px;}
+		#border{width:150px;height:80px;border:2px solid blue;position:absolute;left:18px;top:-2px;
+			cursor:pointer;}
+		li{ list-style:none;margin-left:40px;margin-top:-80px;}
+		li{width:150px;height:100px;margin-left:20px;display: inline-block;
+			cursor:pointer;margin-top:0px;}
+		li img{width:100%;height:100%;}
+	</style>
+</head>
+<body>
+	<div id="carousel">
+		<div id="head"><img src="./img/t1.png" alt=""></div>
+		<div id="body">
+		<input type="button" value="<<" id="left">
+		<input type="button" value=">>" id="right">
+			<ul>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+	var  aImg=['./img/t1.png','./img/t2.png','./img/t3.png','./img/t4.png','./img/t5.png',];
+	var  index=1;
+		for (var i = 0; i < aImg.length; i++) {
+			$('ul').append('<li><img>');
+			$('ul').find('img').eq(i).attr('src',aImg[i]);
+		}
+
+		var i=0;
+            var timer=setInterval(play,500);
+            var play=function(){
+                i++;
+                i = i > 2 ? 0 : i ;
+                $("#position li").eq(i).addClass('cur').siblings().removeClass("cur");
+                $(".pic li").eq(i).fadeIn(500).siblings().fadeOut(500);
+            }
+
+		$('li').on('mousemove',function(){
+			index=$(this).index();
+			$('#head').find('img').attr('src',aImg[index]);
+		})
+		$('#right').on('click',function(){
+				if (index>4) {
+					index = 1;
+				}else{
+				index++;
+				}
+				$('#head').find('img').attr('src',aImg[index-1]);
+			})
+			$('#left').on('click',function(){
+				index--;
+				if (index<1) {
+					index = 5;
+				}
+				$('#head').find('img').attr('src',aImg[index-1]);
+				console.log(index)
+			})
+	</script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图</title>
+
+<style>
+		#body-img div{position:absolute;margin-left:400px;width:800px;height:400px;}
+		#body-img1{background:url(./img/t6.png);background-size:100% 100%;display: block}
+		#body-img2{background:url(./img/t5.png);background-size:100% 100%;display: none;}
+		#body-img3{background:url(./img/t4.png);background-size:100% 100%;display: none}
+		#body-img4{background:url(./img/t3.png);background-size:100% 100%;}
+		#body-img5{background:url(./img/t2.png);background-size:100% 100%;}
+		#body-img6{background:url(./img/t1.png);background-size:100% 100%;}
+		img{position: relative;width:100px;height:60px;top:410px;left:560px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<div id="body-img">
+		<div id="body-img1"></div>
+		<div id="body-img2"></div>
+		<div id="body-img3"></div>
+		<div id="body-img4"></div>
+		<div id="body-img5"></div>
+		<div id="body-img6"></div>
+	</div>
+	
+	<div>
+		<img src="./img/t1.png" id="img1">
+		<img src="./img/t2.png" id="img2">
+		<img src="./img/t3.png" id="img3">
+		<img src="./img/t4.png" id="img4">
+		<img src="./img/t5.png" id="img5">
+		<img src="./img/t6.png" id="img6">
+	</div>
+	<script src="jquery-3.2.1.min.js"></script>
+
+	
+	<script>
+		$("#img1").mousemove(function(){
+    		$("#body-img6").css("display","block");
+    		$("#body-img4").css("display","none");
+    		$("#body-img3").css("display","none");
+    		$("#body-img1").css("display","none");
+    		$("#body-img5").css("display","none");
+    		$("#body-img2").css("display","none");
+  		});		
+  		$("#img2").mousemove(function(){
+			// $('ul').eq($(this).index()).('dispaly',"block");
+    		$("#body-img5").css("display","block");
+    		$("#body-img4").css("display","none");
+    		$("#body-img3").css("display","none");
+    		$("#body-img1").css("display","none");
+    		$("#body-img6").css("display","none");
+    		$("#body-img2").css("display","none");
+  		});		
+  		$("#img3").mousemove(function(){
+			// $('ul').eq($(this).index()).('dispaly',"block");
+    		$("#body-img4").css("display","block");
+    		$("#body-img6").css("display","none");
+    		$("#body-img3").css("display","none");
+    		$("#body-img1").css("display","none");
+    		$("#body-img5").css("display","none");
+    		$("#body-img2").css("display","none");
+  		});		
+  		$("#img4").mousemove(function(){
+			// $('ul').eq($(this).index()).('dispaly',"block");
+    		$("#body-img3").css("display","block");
+    		$("#body-img4").css("display","none");
+    		$("#body-img6").css("display","none");
+    		$("#body-img1").css("display","none");
+    		$("#body-img5").css("display","none");
+    		$("#body-img2").css("display","none");
+  		});		
+  		$("#img5").mousemove(function(){
+    		$("#body-img2").css("display","block");
+    		$("#body-img4").css("display","none");
+    		$("#body-img3").css("display","none");
+    		$("#body-img1").css("display","none");
+    		$("#body-img5").css("display","none");
+    		$("#body-img6").css("display","none");
+  		});		
+  		$("#img6").mousemove(function(){
+    		$("#body-img1").css("display","block");
+    		$("#body-img4").css("display","none");
+    		$("#body-img3").css("display","none");
+    		$("#body-img6").css("display","none");
+    		$("#body-img5").css("display","none");
+    		$("#body-img2").css("display","none");
+  		});		
+	</script>
+</body>
+</html> -->

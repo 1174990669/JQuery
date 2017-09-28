@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>上下点击移动</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		dl{margin-left:200px;}
+		dt{font-size:26px;color:red;}
+		input{font-size:20px;color:pink;}
+	</style>
+</head>
+<body>
+	<dl>
+		<dt><input type="button" value="上移">1<input type="button" value="下移"></dt>
+		<dt><input type="button" value="上移">2<input type="button" value="下移"></dt>
+		<dt><input type="button" value="上移">3<input type="button" value="下移"></dt>
+		<dt><input type="button" value="上移">4<input type="button" value="下移"></dt>
+		<dt><input type="button" value="上移">5<input type="button" value="下移"></dt>
+		<dt><input type="button" value="上移">6<input type="button" value="下移"></dt>
+	</dl>
+	
+	<script>
+		$('input[value="上移"]').click(function(){
+		var $nowdt = $(this).closest('dt');
+		var $dl = $(this).closest('dl');
+		var $prevdt = $nowdt.prev();
+		if(!$prevdt.length){
+			alert('已经到顶啦');
+		}
+		else{
+			$nowdt.insertBefore( $prevdt );
+		}
+	});
+	$('input[value="下移"]').click(function(){
+		var $nowdt = $(this).closest('dt');
+		var $nextdt = $nowdt.next();
+		if(!$nextdt.length){
+			alert('已经到最后啦');
+		}
+		else{
+			$nowdt.insertAfter( $nextdt );
+		}
+	});
+	</script>
+</body>
+</html>

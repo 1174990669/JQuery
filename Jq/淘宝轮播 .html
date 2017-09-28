@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝轮播图</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		div{width:500px;height: 300px;position:relative;border:1px solid lime;}
+		li{list-style:none;}
+		img{vertical-align:top;}
+		/*#ul-img {}*/
+	</style>
+</head>
+<body>
+	<div>
+		<ul id="ul-img">
+			<li><img src="./img/j.png" alt=""></li>
+			<li><img src="./img/j2.png" alt=""></li>
+			<li><img src="./img/j3.png" alt=""></li>
+			<li><img src="./img/j4.png" alt=""></li>
+			<li><img src="./img/j5.png" alt=""></li>
+			<li><img src="./img/j6.png" alt=""></li>
+		</ul>
+
+		<ul id="ul-font">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+	</div>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝轮播</title>
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+
+		body,ul,ol{margin:0;padding:0;}
+		li{ list-style:none;}
+		img{ border:none; vertical-align:top; width:100%;height:100%;}
+		#box{width:600px;height:350px; position:relative; margin:30px auto; overflow:hidden;}
+		ul{ width:600px; position:absolute;left:0; top:0; z-index:1;}
+		ul li{width:600px; position:absolute; top:0;}
+		ol{z-index:2; width:120px; position:absolute;right:10px; bottom:10px;}
+		ol li{ width:20px;height:20px; float:left;margin:0 2px; display:inline; background:#fff; color:#f60; line-height:20px; text-align:center;}
+		ol .active{ background:#f60; color:#fff;}
+
+	</style>
+</head>
+<body>
+	<div id="box">
+	<ul>
+    	<li><img src="./img/t1.png" alt=""/></li>
+        <li><img src="./img/t2.png" alt=""/></li>
+        <li><img src="./img/t3.png" alt=""/></li>
+        <li><img src="./img/t4.png" alt=""/></li>
+        <li><img src="./img/t5.png" alt=""/></li>
+    </ul>
+    <ol>
+    	<li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+</div>
+
+
+	<script>
+			var $oLi = $('ol li');
+			var $uLi = $('ul li');
+			var iNow = 0;
+			var oneWidth = $uLi.width();
+			
+			$uLi.slice(1).each(function(){
+				$(this).css( 'left', oneWidth );
+			});
+			var bBtn = true;
+			$oLi.mouseover(function(){
+				if(bBtn){
+					bBtn = false;
+					$oLi.attr('class','');
+					
+					$(this).attr('class','active');
+					
+					var index = $(this).index();
+					
+					if(iNow < index){
+						$uLi.eq(index).css('left',oneWidth);
+						$uLi.eq(iNow).animate({'left':-oneWidth});
+					}
+					else if(iNow > index){
+						$uLi.eq(index).css('left',-oneWidth);
+						$uLi.eq(iNow).animate({'left':oneWidth});
+					}
+					
+					$uLi.eq(index).animate({'left':0},function(){
+							bBtn = true;
+					});
+					
+					iNow = index;
+				}
+			});
+			
+
+	</script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝轮播</title>
+	<script  src="jquery-3.2.1.min.js"></script>
+	<style>
+		ul{position:relative;}
+		li{width:500px;height:200px;border:1px solid lime;list-style:none;}
+		img{width:100%;height:100%;float:right;}
+		dl{width:190px;height:25px;background: lime;border-radius:10px;position: absolute;top:170px;left:200px;}
+		dt{width:25px;height: 25px;border-radius: 10px;background:white;float:right;line-height: 25px;
+			margin-left:6px;cursor:pointer;}
+		.img{display:none;}
+	</style>
+</head>
+<body>
+	
+	<div>
+		<ul>
+			<li id="img1" style="display:block;"><img src="./img/t1.png" alt=""></li>
+			<li id="img2"><img src="./img/t2.png" alt=""></li>
+			<li id="img3"><img src="./img/t3.png" alt=""></li>
+			<li id="img4"><img src="./img/t4.png" alt=""></li>
+			<li id="img5"><img src="./img/t5.png" alt=""></li>
+			<li id="img6"><img src="./img/t6.png" alt=""></li>
+		</ul>
+		<dl>
+			<dt id="dt1"></dt>
+			<dt id="dt2"></dt>
+			<dt id="dt3"></dt>
+			<dt id="dt4"></dt>
+			<dt id="dt5"></dt>
+			<dt id="dt6"></dt>
+		</dl>
+	</div>
+	<script>
+
+		// $('#dt1').click(function(){
+		// 	$('#li1').addClass('img').siblings('li').removeClass('img'); 
+		// })
+		// $('#dt2').click(function(){
+		// 	$('#li2').addClass('img').siblings('li').removeClass('img'); 
+		// })
+		// $('#dt3').click(function(){
+		// 	$('#li3').addClass('img').siblings('li').removeClass('img'); 
+		// })
+		// $('#dt4').click(function(){
+		// 	$('#li4').addClass('img').siblings('li').removeClass('img'); 
+		// })
+		// $('#dt5').click(function(){
+		// 	$('#li5').addClass('img').siblings('li').removeClass('img'); 
+		// })
+		// $('#dt6').click(function(){
+		// 	$('#li6').addClass('img').siblings('li').removeClass('img'); 
+		// })
+
+
+
+
+
+
+
+		$('#dt1').click(function(){
+			$('#img1').css('display','block');
+			$('#img2').css('display','none');
+			$('#img3').css('display','none');
+			$('#img4').css('display','none');
+			$('#img5').css('display','none');
+			$('#img6').css('display','none');
+		})
+
+		// $('#dt2').click(function(){
+		// 	$('#li2').css('display','block');
+		// 	$('#li1').css('display','none');
+		// 	$('#li3').css('display','none');
+		// 	$('#li4').css('display','none');
+		// 	$('#li5').css('display','none');
+		// 	$('#li6').css('display','none');
+
+		// })
+
+	</script>
+</body>
+</html> -->

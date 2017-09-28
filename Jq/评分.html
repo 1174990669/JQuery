@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝评分</title>
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_kujueg1qdad78pvi.css">
+	<script src="jquery-3.2.1.min.js"></script>
+	<style>
+		div{width:600px;height: 80px;margin:80px auto;}
+		 #img{font-size:40px;background: white;cursor:pointer;}
+		 input{font-size:20px;cursor:pointer;}
+	</style>
+</head>
+<body>
+	<div>
+		1<i id="img" class="iconfont icon-star-outline"></i>
+		2<i id="img" class="iconfont icon-star-outline"></i>
+		3<i id="img" class="iconfont icon-star-outline"></i>
+		4<i id="img" class="iconfont icon-star-outline"></i>
+		5<i id="img" class="iconfont icon-star-outline"></i>
+		<input type="button" value="确认提交">
+	</div>
+	<script>
+		var oF=true;
+		$('i').mousemove(function(){
+			if(oF){
+				var index=$(this).index();
+				$('i').each(function(j,elem){
+					if(index>=j){
+						$(elem).css('background','red');
+					}
+					else{
+						$(elem).css('background','lime');
+					}
+				})
+			}
+		})
+		$('i').click(function(){
+			$('i').off();
+		});
+		// $('input').click(function(){
+		// 			alert('亲五星好评有礼')
+		// 	})
+	</script>
+</body>
+</html>
